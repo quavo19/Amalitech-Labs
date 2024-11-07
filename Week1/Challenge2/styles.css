@@ -27,17 +27,30 @@ body {
     flex: 1;
 }
 
-.todo-input input,
-.todo-input textarea,
-.todo-input button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
 .todo-list {
     list-style: none;
     padding: 0;
+}
+
+.sort-buttons {
+    display: none;
+}
+
+.todo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.todo-input input, .todo-input textarea, .todo-input button {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 8px;
+    font-size: 17px
 }
 
 .todo-item {
