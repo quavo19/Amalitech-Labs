@@ -1,5 +1,4 @@
 let todoList = [];
-console.log(todoList.length)
 function createTodoItem(title, description, dueDate) {
     return {
         id: Date.now(),
