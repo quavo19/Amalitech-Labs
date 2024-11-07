@@ -1,5 +1,5 @@
 let todoList = [];
-
+console.log(todoList.length)
 function createTodoItem(title, description, dueDate) {
     return {
         id: Date.now(),
@@ -41,6 +41,8 @@ function addTodoItem() {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
     const dueDate = document.getElementById('due-date').value;
+    const sort = document.querySelector('.sort-buttons');
+
 
     if (title && dueDate) {
         const newTodo = createTodoItem(title, description, dueDate);
@@ -50,6 +52,9 @@ function addTodoItem() {
     } else {
         alert('Please enter a title and a due date.');
     }
+if (sort) {
+    sort.style.display = (todoList.length < 1 ? "" : "block");
+}
 }
 
 function markAsComplete(id) {
