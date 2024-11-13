@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="todo-app-container">
+    <div class="todo-input-container">
+        <h2>Add To-Do Item</h2>
+        <div class="todo-input">
+            <input type="text" id="title" placeholder="Title" required>
+            <textarea id="description" placeholder="Description (optional)"></textarea>
+            <input type="datetime-local" id="due-date" required>
+            <button id="add-button">Add To-Do</button>
+        </div>
+    </div>
+
+    <div class="todo-list-container">
+        <h2>To-Do List</h2>
+        <div class="sort-buttons">
+            <button id="sort-asc">Sort by Due Date (Asc)</button>
+            <button id="sort-desc">Sort by Due Date (Desc)</button>
+        </div>
+        <ul class="todo-list" id="todo-list"></ul>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
