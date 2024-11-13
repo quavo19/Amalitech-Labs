@@ -1,4 +1,5 @@
 let todoList = [];
+
 function createTodoItem(title, description, dueDate) {
     return {
         id: Date.now(),
@@ -28,8 +29,10 @@ function renderTodoList() {
             </div>
             <div class="todo-buttons">
                 <button onclick="markAsComplete(${todo.id})">${todo.completed ? 'Undo' : 'Complete'}</button>
+                <button onclick="editTodoItem(${todo.id})">Edit</button>
                 <button onclick="deleteTodoItem(${todo.id})">Delete</button>
             </div>
+
         `;
 
         todoListContainer.appendChild(todoItem);
@@ -42,18 +45,43 @@ function addTodoItem() {
     const dueDate = document.getElementById('due-date').value;
     const sort = document.querySelector('.sort-buttons');
 
-
     if (title && dueDate) {
-        const newTodo = createTodoItem(title, description, dueDate);
-        todoList.push(newTodo);
+        if (editingTodoId) {
+            const todo = todoList.find(todo => todo.id === editingTodoId);
+            if (todo) {
+                todo.title = title;
+                todo.description = description;
+                todo.dueDate = new Date(dueDate);
+            }
+            editingTodoId = null;
+            document.getElementById('add-button').textContent = 'Add To-Do';
+        } else {
+            const newTodo = createTodoItem(title, description, dueDate);
+            todoList.push(newTodo);
+        }
+
         renderTodoList();
         clearInputFields();
     } else {
         alert('Please enter a title and a due date.');
     }
-if (sort) {
-    sort.style.display = (todoList.length < 1 ? "" : "block");
+
+    if (sort) {
+        sort.style.display = (todoList.length < 1 ? "" : "block");
+    }
 }
+
+let editingTodoId = null;
+
+function editTodoItem(id) {
+    const todo = todoList.find(todo => todo.id === id);
+    if (todo) {
+        document.getElementById('title').value = todo.title;
+        document.getElementById('description').value = todo.description;
+        document.getElementById('due-date').value = todo.dueDate.toISOString().slice(0, 16); 
+        editingTodoId = id; 
+        document.getElementById('add-button').textContent = 'Save Changes';
+    }
 }
 
 function markAsComplete(id) {

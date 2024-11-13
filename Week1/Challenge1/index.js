@@ -50,15 +50,27 @@ const testArr = [2,3,5,7,2,8,3,5]
 
 
 //filter out even numbers using a for loop
-const EvenNumbersOnly = (arr) => {
-    return arr.filter((number) => number %2 === 0)
+const OddNumbersOnly = (arr) => {
+    let newArr = []
+    let index = 0
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] %2 != 0){
+            newArr[index]=arr[i]
+            index++
+        }
+    }
+    return newArr;
 }
-//console.log(EvenNumbersOnly(testArr))
+//console.log(OddNumbersOnly(testArr))
 
 
 //Calculate the sum of all numbers in an array using a for loop
 const SumAllNumbers = (arr) => {
-    return arr.reduce((acc, inc) => acc + inc)
+    let sum = 0
+   for(let i=0; i<arr.length; i+=1){
+     sum += arr[i]
+   }
+   return sum
 }
 //console.log(SumAllNumbers(testArr))
 
@@ -95,9 +107,23 @@ const IsAdult = (person) => {
 
 //Filter an array of objects to keep those at least minAge years old using for loop
 const FilterByAge = (people, minAge) => {
-return (
-    ((typeof minAge === "number") ? (people.filter((person) => person.age >= minAge)) : `"${minAge}" is not a number, enter a number`)
-)}
+    let index = 0
+    if (typeof minAge !== "number") {
+      return `"${minAge}" is not a number, enter a number`;
+    }
+  
+    let filteredPeople = [];
+    for (let i = 0; i < people.length; i++) {
+      if (people[i].age >= minAge) {
+        filteredPeople[i] = people[i];
+        index++
+        console.log(index)
+      }
+    }
+  
+    return filteredPeople;
+  };
+  
 
 let people = [
     {name: "Donald", age: 22},
@@ -113,13 +139,5 @@ console.log(FilterByAge(people, 12))
 
 
 //Function Composition 
-const compose = (...functions) => {
-    return (input) => {
-      return functions.reduceRight((acc, fn) => {
-        return fn(acc);
-      }, input);
-    };
-  };
-const Composition = compose(DoubleArr,EvenNumbersOnly)
-
-// console.log(Composition([32,34,1,2,4,34,6,2,3,12,34,4]))
+const compose = (arr) =>  DoubleArr(OddNumbersOnly(arr))
+//console.log(compose([32,34,1,2,4,34,6,2,3,12,34,4]))
