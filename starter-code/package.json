@@ -1,0 +1,9 @@
+{
+  "scripts": {
+  "build-css": "sass styles/main.scss dist/styles.css"
+}
+,
+  "devDependencies": {
+    "sass": "^1.81.1"
+  }
+}

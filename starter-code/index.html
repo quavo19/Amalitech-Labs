@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dist/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Dictionary web app</title>
+</head>
+<body>
+  <header>
+    <img src="./assets/images/logo.svg" alt="logo">
+    <div class="controls">
+      <div id="fontSelector" class="dropdown">
+        <div class="selected">Sans Serif</div>
+        <div id="fontOptions" class="options">
+          <div class="option" data-font="sans-serif">Sans Serif</div>
+          <div class="option" data-font="serif">Serif</div>
+          <div class="option" data-font="monospace">Mono</div>
+        </div>
+      </div>   
+      <label class="switch">
+        <input type="checkbox" id="toggleTheme">
+        <span class="slider"></span>
+      </label>
+      <img src="./assets/images/icon-moon.svg" alt="Toggle dark mode">
+    </div>
+  </header>
+
+  <main>
+    <div class="search-container">
+      <input type="text" id="searchBar" placeholder="Enter a word...">
+      <button id="searchButton">
+        <img src="./assets/images/icon-search.svg" alt="Search">
+      </button>
+    </div>
+    
+    <div id="resultContainer" class="result-container"></div>
+  </main>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
