@@ -1,0 +1,216 @@
+body {
+  font-family: Arial, sans-serif, Serif, Mono;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: 4rem 12rem;
+  }
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+button {
+  all: unset;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+.controls select,
+.controls button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.controls select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.controls .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+.controls .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.controls .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+.controls .switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+.controls .switch input:checked + .slider {
+  background-color: #A445ED;
+}
+.controls .switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+main {
+  padding: 1rem;
+}
+main .search-container {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #searchBar {
+  height: 100%;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 2rem;
+  font-size: 1rem;
+  background-color: #F4F4F4;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  transition: border-color 0.3s ease;
+  position: relative;
+}
+main #searchBar:focus {
+  border-color: #007acc;
+  outline: none;
+}
+main #searchButton {
+  all: unset;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+}
+main #resultContainer {
+  margin-top: 1rem;
+}
+main #resultContainer h2.word-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+main #resultContainer .synonyms {
+  color: #A445ED;
+  font-weight: bold;
+}
+main #resultContainer .synonyms-container {
+  display: flex;
+  text-align: center;
+  gap: 15px;
+}
+main #resultContainer p.phonetic {
+  color: #A445ED;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+main #resultContainer h3.part-of-speech {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+main #resultContainer h4.sub-heading {
+  font-size: 0.9rem;
+  color: gray;
+}
+main #resultContainer ul.meanings li {
+  margin-bottom: 0.3rem;
+}
+
+.dark #searchBar {
+  background-color: #1F1F1F;
+  color: #ffffff;
+}
+
+#fontSelector {
+  position: relative;
+  width: 200px;
+}
+
+.selected {
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  position: relative;
+}
+.selected.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 0.5rem;
+  z-index: 10;
+  font-weight: bold;
+  font-size: 18px;
+  background: #fff;
+}
+
+.dark .options {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.option {
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+#fontSelector.open .options {
+  display: block;
+}
+
+/*# sourceMappingURL=styles.css.map */

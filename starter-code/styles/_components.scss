@@ -1,0 +1,240 @@
+@use 'variables' as vars;
+
+body {
+  font-family: Arial, sans-serif, Serif, Mono;
+  margin: 0;
+  padding: 0;
+  background-color: vars.$light-bg;
+  color: vars.$dark-text;
+  transition: all 0.3s ease;
+
+  &.dark {
+    background-color: vars.$dark-bg;
+    color: vars.$light-text;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  body {
+      padding:  4rem 12rem; 
+ }
+
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+button {
+  all: unset;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+
+  select,
+  button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  select {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: 0.4s;
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+    }
+
+    input:checked + .slider {
+      background-color: vars.$secondary-color;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(26px);
+    }
+  }
+}
+
+main {
+  padding: 1rem;
+  .search-container {
+    position: relative;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #searchBar {
+   height: 100%;
+   width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+    font-size: 1rem;
+    background-color: #F4F4F4;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    transition: border-color 0.3s ease;
+    position: relative;
+   
+    &:focus {
+      border-color: vars.$primary-color;
+      outline: none;
+    }
+  }
+
+  
+
+  #searchButton {
+    all: unset;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  #resultContainer {
+    margin-top: 1rem;
+  
+    h2.word-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .synonyms {
+      color: vars.$secondary-color;
+      font-weight: bold;
+    }
+
+    .synonyms-container {
+      display: flex;
+      text-align: center;
+      gap: 15px;
+    }
+    p.phonetic {
+      color: vars.$secondary-color;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+  
+    h3.part-of-speech {
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+  
+    h4.sub-heading {
+      font-size: 0.9rem;
+      color: gray;
+    }
+
+    ul.meanings {
+  
+      li {
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}
+
+.dark  #searchBar {
+  background-color: #1F1F1F;
+  color: vars.$light-text;
+}
+#fontSelector {
+  position: relative;
+  width: 200px;
+}
+
+.selected {
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  position: relative;
+
+  &.dark {
+    background-color: vars.$dark-bg;
+    color: vars.$light-text;
+  }
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 0.5rem;
+  z-index: 10;
+  font-weight: bold;
+  font-size: 18px;
+  background: #fff;
+}
+
+.dark .options {
+  background-color: vars.$dark-bg;
+  color: vars.$light-text;
+}
+.option {
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+#fontSelector.open .options {
+  display: block;
+}
