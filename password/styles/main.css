@@ -230,6 +230,17 @@ input[type=range] {
   align-items: center;
 }
 
+button {
+  background: #ecf0f1;
+  color: #3498db;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
 .strength {
   font-weight: 700;
   font-size: 24px;

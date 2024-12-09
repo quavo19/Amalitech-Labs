@@ -254,6 +254,18 @@ input[type="range"] {
   align-items: center;
 }
 
+button {
+  background: $font-color;
+  color: $primary-color;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+
 .strength {
   font-weight: 700;
   font-size: 24px;

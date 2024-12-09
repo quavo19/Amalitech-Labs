@@ -19,7 +19,7 @@ class PasswordGenerator {
         ...(includeSymbols ? this.symbols : ''),
       ];
   
-      if (!availableChars.length) return "Select at least one option!";
+      if (!availableChars.length) return "";
       return Array.from({ length }, () => this.generateRandomChar(availableChars)).join('');
     }
   
