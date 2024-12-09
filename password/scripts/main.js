@@ -75,7 +75,7 @@ slider.addEventListener("input", () => {
   document.getElementById('copy-password').addEventListener('click', () => {
     const password = document.getElementById('password-display').textContent;
     navigator.clipboard.writeText(password).then(() => {
-      alert('Password copied to clipboard!');
+      console.log('Password copied to clipboard!');
     });
   });
   function updateStrengthBars(strength) {
